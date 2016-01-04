@@ -4,7 +4,7 @@ An Ansible role that creates and installs a Backdrop project on beetbox.
 
 ## Requirements
 
-This role is specifically developed as an extention to beetbox -- https://github.com/drupalmel/beetbox
+This role is specifically developed as an extension to beetbox -- https://github.com/drupalmel/beetbox
 
 ## Role Variables
 
@@ -18,45 +18,29 @@ Backdrop project git respository.
     
     backdrop_repo: "https://github.com/backdrop/backdrop.git"
     
+Backdrop project version. This can be the full 40-character SHA-1 hash, the literal string HEAD, a branch name, or a tag name.
     
+    backdrop_version: "HEAD"
     
-    backdrop_version: "1.2.2"
+Backdrop checkout depth. git is history truncated to the specified number or revisions
+    
     backdrop_checkout_depth: 1
+    
+Install Backdrop project.
+    
     backdrop_install_site: no
+    
+Backdrop install profile.
+    
     backdrop_install_profile: standard
+    
+Backdrop admin account name.
+    
     backdrop_account_name: admin
+    
+Backdrop admin account password.
+    
     backdrop_account_pass: admin
-
-
-
-Create a new Silverstripe project.
-
-    ss_create_project: no
-    
-Silverstripe project version. This can be the full 40-character SHA-1 hash, the literal string HEAD, a branch name, or a tag name.
-    
-    ss_version: "HEAD"
-    
-Install Silverstripe project.
-    
-    ss_install_site: no    
-    
-Silverstripe environment.
-    
-    ss_env_type: dev
-    
-Silverstripe admin account name.
-    
-    ss_account_name: admin
-    
-Silverstripe admin account password.
-    
-    ss_account_pass: admin
-    
-Silverstripe path to sake. Relative to project root.
-    
-    ss_sake_path: /framework/sake
-
 
 ## Dependencies
 
