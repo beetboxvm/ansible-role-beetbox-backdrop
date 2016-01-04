@@ -1,0 +1,37 @@
+---
+- name: Check if Backdrop is already set up.
+  stat: "path={{ beet_root }}/index.php"
+  register: backdrop_site
+
+- name: Checkout backdrop project.
+  git:
+    repo: "{{ backdrop_repo }}"
+    dest: "{{ beet_root }}"
+    version: "{{ backdrop_version }}"
+    depth: "{{ backdrop_checkout_depth }}"
+    accept_hostkey: yes
+  when: backdrop_checkout and not backdrop_site.stat.exists
+
+- name: Check if site is already installed.
+  shell: >
+    ./core/scripts/backdrop.sh http://default/
+    chdir={{ beet_root }}
+  register: backdrop_site_installed
+  failed_when: false
+  changed_when: false
+  become: no
+  when: backdrop_install_site
+
+- name: Install Backdrop.
+  shell: >
+    ./core/scripts/install.sh {{ backdrop_install_profile | default('standard') }}
+    --site-name="{{ beet_site_name }}"
+    --account-name={{ backdrop_account_name }}
+    --account-pass={{ backdrop_account_pass }}
+    --db-url=mysql://{{ beet_mysql_user }}:{{ beet_mysql_password }}@localhost/{{ beet_mysql_database }}
+    chdir={{ beet_root }}
+  notify: restart webserver
+  changed_when: "backdrop_site_installed.stdout == ''"
+  failed_when: false
+  become: no
+  when: backdrop_install_site

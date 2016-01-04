@@ -1,0 +1,10 @@
+---
+beet_root: "/path/to/project"
+backdrop_checkout: no
+backdrop_repo: "https://github.com/backdrop/backdrop.git"
+backdrop_version: "HEAD"
+backdrop_checkout_depth: 1
+backdrop_install_site: no
+backdrop_install_profile: standard
+backdrop_account_name: admin
+backdrop_account_pass: admin
