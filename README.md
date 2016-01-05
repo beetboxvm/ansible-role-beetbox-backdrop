@@ -22,7 +22,7 @@ Backdrop project version. This can be the full 40-character SHA-1 hash, the lite
     
     backdrop_version: "HEAD"
     
-Backdrop checkout depth. git is history truncated to the specified number or revisions
+Backdrop checkout depth. git history truncated to the specified number or revisions.
     
     backdrop_checkout_depth: 1
     
