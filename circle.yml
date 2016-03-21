@@ -1,15 +1,17 @@
 ---
 machine:
+  hosts:
+    beetbox.local: 127.0.0.1
   environment:
     BEET_HOME: /beetbox
+    BEET_BASE: /var/beetbox
     BEET_USER: ubuntu
     BEET_DEPENDENCIES: https://raw.githubusercontent.com/beetboxvm/beetbox/master/provisioning/beetbox.sh
-    BEET_PROVISION: provisioning/beetbox.sh
 dependencies:
-  pre:
-    - curl -fsSL $BEET_DEPENDENCIES | bash
-    - sudo cp -rf ~/$CIRCLE_PROJECT_REPONAME/* $BEET_HOME/provisioning/ansible/roles/${CIRCLE_PROJECT_REPONAME/ansible-role-beetbox-/beetboxvm.}
-    - sudo cp ~/$CIRCLE_PROJECT_REPONAME/tests/config.yml ~/vagrant.config.yml
+  override:
+    - sudo cp -rf ~/$CIRCLE_PROJECT_REPONAME $BEET_BASE ; sudo chown -R $BEET_USER:$BEET_USER $BEET_BASE
+    - bash <(curl -s $BEET_DEPENDENCIES)
 test:
   override:
-    - $BEET_HOME/$BEET_PROVISION
+    - sudo cp ~/$CIRCLE_PROJECT_REPONAME/tests/config.yml ~/vagrant.config.yml
+    - bash <(curl -s $BEET_DEPENDENCIES)

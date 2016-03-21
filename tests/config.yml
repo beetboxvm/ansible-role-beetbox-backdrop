@@ -5,3 +5,5 @@ backdrop_version: "1.2.2"
 backdrop_install_site: yes
 backdrop_account_name: admin
 backdrop_account_pass: admin
+
+beet_run_tests: yes
