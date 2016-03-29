@@ -1,5 +1,7 @@
 # Ansible Role: Beetbox Backdrop
 
+[![Circle CI](https://circleci.com/gh/beetboxvm/ansible-role-beetbox-backdrop.svg?style=svg)](https://circleci.com/gh/beetboxvm/ansible-role-beetbox-backdrop)
+
 An Ansible role that creates and installs a Backdrop project on beetbox.
 
 ## Requirements
