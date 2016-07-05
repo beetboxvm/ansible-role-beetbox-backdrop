@@ -1,0 +1,3 @@
+.beetbox/*
+!.beetbox/config.yml
+docroot/

@@ -4,10 +4,6 @@
 
 An Ansible role that creates and installs a Backdrop project on beetbox.
 
-## Requirements
-
-This role is specifically developed as an extension to beetbox -- https://github.com/drupalmel/beetbox
-
 ## Role Variables
 
 Available variables are listed below, along with default values:
@@ -44,9 +40,33 @@ Backdrop admin account password.
     
     backdrop_account_pass: admin
 
-## Dependencies
 
-- Beetbox -- https://github.com/drupalmel/beetbox
+# beetbox
+
+https://github.com/beetboxvm/beetbox
+
+## Requirements
+
+* [Vagrant](https://www.vagrantup.com/) >= 1.8
+* [Virtualbox](https://www.virtualbox.org/)
+* [Vagrant Hostsupdater](https://github.com/cogitatio/vagrant-hostsupdater)
+* [Vagrant Auto-network](https://github.com/oscar-stack/vagrant-auto_network)
+
+## Quickstart
+
+  1. Open terminal (or [git bash](https://msysgit.github.io/) for windows users) and run the following commands --
+
+  ```
+  git clone https://github.com/beetboxvm/ansible-role-beetbox-backdrop.git backdrop && cd $_
+  vagrant up
+  ```
+
+  2. Go to http://backdrop.local/
+
+  ```
+  username: admin
+  password: admin
+  ```
 
 ## License
 

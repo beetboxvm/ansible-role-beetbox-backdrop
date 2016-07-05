@@ -1,7 +1,0 @@
----
-beet_root: "home/ubuntu/workspace"
-beet_project: backdrop
-backdrop_checkout: yes
-backdrop_install_site: yes
-backdrop_account_name: admin
-backdrop_account_pass: admin

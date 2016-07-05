@@ -1,0 +1,10 @@
+---
+beet_domain: "backdrop.local"
+beet_root: "{{ beet_base }}/docroot"
+role_path: "{{ beet_home }}/provisioning/ansible/roles/beetboxvm.backdrop"
+
+beet_project: backdrop
+backdrop_checkout: yes
+backdrop_install_site: yes
+backdrop_account_name: admin
+backdrop_account_pass: admin
